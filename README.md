@@ -1,5 +1,5 @@
 # Running Line
-## Test Project for IT-Solutions Internship
+## Test Project for IT-Solution Internship
 ### Tasks:
 1. Write a script that creates a video of a text line moving across the screen
 2. Post to Google Colab
