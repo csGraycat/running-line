@@ -1,5 +1,8 @@
 from django.db import models
 
+class Message(models.Model):
+	message = models.CharField(max_length=150, db_index=True, verbose_name='Name')
+
 class Video(models.Model):
 	name = models.CharField(max_length=150, db_index=True, verbose_name='Name')
 	slug = models.SlugField(max_length=150, unique=True)

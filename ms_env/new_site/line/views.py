@@ -3,17 +3,32 @@ from PIL import Image, ImageFont, ImageDraw
 from django.http import FileResponse
 from django.shortcuts import render, redirect
 import datetime
+import sqlite3
 
 def index(request):
-	return HttpResponse("Paste your text in the address bar")
+	return HttpResponse(request.method)
 	
+def save_request(request, text):
+	sqlite_connection = sqlite3.connect('db.sqlite3')
+	cursor = sqlite_connection.cursor()
+	sqlite_insert_with_param = """INSERT INTO requests
+		(method, text)
+		VALUES (?, ?);"""
+	
+	data_tuple = (request.method, text)
+	cursor.execute(sqlite_insert_with_param, data_tuple)
+	sqlite_connection.commit()
+	cursor.close()
 		
 def video(request, text):
+
+	save_request(request, text)	
+	
 	images = []
 	font_size = 50
 	var = text
 	x = 100
-
+	
 	base = Image.new(mode='RGBA', size=(100, 100), color=(0, 0, 50, 255))  # create background layer
 	fnt = ImageFont.truetype(r'/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf', font_size)
 
