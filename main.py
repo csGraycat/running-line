@@ -7,7 +7,7 @@ if __name__ == '__main__':
     x = 100
 
     base = Image.new(mode='RGBA', size=(100, 100), color=(0, 0, 0, 255))  # create background layer
-    fnt = ImageFont.truetype('calibri.ttf', font_size)
+    fnt = ImageFont.truetype(r'/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf', font_size)
 
     while len(images) * 30 < 3000:  # make sure that the file is less than 3s
         txt = Image.new('RGBA', base.size, (255, 255, 255, 0))

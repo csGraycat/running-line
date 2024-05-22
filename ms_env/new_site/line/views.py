@@ -1,12 +1,10 @@
 from django.http import HttpResponse
 from PIL import Image, ImageFont, ImageDraw
 from django.http import FileResponse
-from django.shortcuts import render, redirect
-import datetime
 import sqlite3
 
 def index(request):
-	return HttpResponse(request.method)
+	return HttpResponse("Enter your text into address bar")
 	
 def save_request(request, text):
 	sqlite_connection = sqlite3.connect('db.sqlite3')
