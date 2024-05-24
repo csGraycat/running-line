@@ -4,7 +4,7 @@ from django.http import FileResponse
 import sqlite3
 
 def index(request):
-	return HttpResponse("Enter your text into address bar")
+	return HttpResponse("Enter your text into address bar after slash (e.g. /text)")
 	
 def save_request(request, text):
 	sqlite_connection = sqlite3.connect('db.sqlite3')
